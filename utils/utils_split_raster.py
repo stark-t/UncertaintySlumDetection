@@ -4,10 +4,10 @@ import numpy as np
 import pandas as pd
 import tifffile as tif
 import sys
+from tqdm import tqdm
 
 sys.path.append("..")  # Add parent directory to Python path
-import config
-from tqdm import tqdm
+import config  # noqa: E402
 
 
 def resize_image(image, threshold):
