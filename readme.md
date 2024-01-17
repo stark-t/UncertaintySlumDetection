@@ -21,7 +21,7 @@ In urban slum mapping, the importance of efficient techniques is often underesti
 
 ### **Get Data**
 
-**Note:** The data provided here is only for example purposes and differs from the original paper. In the original paper, we used resampled 3-meter PlanetScope data. However, due to copyright reasons, we are using 3-meter resampled RGB Sentinel-2 imagery from the cities of Caracas and Mumbai as an example.
+**Note:** The data provided here is solely intended for illustrative purposes and deviates from the original paper. In the original study, we utilized resampled 3-meter PlanetScope data. However, due to copyright restrictions, we have substituted it with 3-meter resampled RGB Sentinel-2 imagery from the cities of Caracas and Mumbai as a demonstrative example.
 
 To use the example data, follow these steps:
 
