@@ -50,6 +50,9 @@ To use the example data, follow these steps:
 ## Results
 
 ### Example results
-| Image 1 | Image 2 |
+
+**Note:** Please note that the results shown here are based on a limited amount of data and may not be ideal. They should be used as a reference for structuring other data to achieve similar results as described in the original paper. If you require additional data or access to the original model weights, feel free to contact the authors. They will be happy to assist you.
+
+| Sentinel2 RGB | Slum Propbability |
 |---------|---------|
 | ![alt text](https://github.com/stark-t/UncertaintySlumDetection/blob/master/images_repo/mumbai.png) | ![alt text](https://github.com/stark-t/UncertaintySlumDetection/blob/master/images_repo/mumbai_results.png) |
