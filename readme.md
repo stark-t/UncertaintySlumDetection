@@ -50,4 +50,6 @@ To use the example data, follow these steps:
 ## Results
 
 ### Example results
-![alt text](https://github.com/stark-t/UncertaintySlumDetection/blob/master/images_repo/mumbai.png) ![alt text](https://github.com/stark-t/UncertaintySlumDetection/blob/master/images_repo/mumbai_results.png)
+| Image 1 | Image 2 |
+|---------|---------|
+| ![alt text](https://github.com/stark-t/UncertaintySlumDetection/blob/master/images_repo/mumbai.png) | ![alt text](https://github.com/stark-t/UncertaintySlumDetection/blob/master/images_repo/mumbai_results.png) |
