@@ -4,7 +4,7 @@ Welcome to the official repository for the paper "Quantifying Uncertainty in Slu
 
 <small><i>Stark, T., Wurm, M., Zhu, X. X., & Taubenböck, H. (2024). Quantifying Uncertainty in Slum Detection: Advancing Transfer-Learning with Limited Data in Noisy Urban Environments. IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, submitted</i></small>
 
-![UncertaintySlumDetection](https://github.com/stark-t/UncertaintySlumDetection/blob/master/images_repo/results.png)
+![UncertaintySlumDetection](https://github.com/stark-t/UncertaintySlumDetection/blob/master/images_repo/Results.png)
 
 
 ## Abstract Summary:
