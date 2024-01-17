@@ -2,20 +2,22 @@
 
 Welcome to the official repository for the paper "Quantifying Uncertainty in Slum Detection: Advancing Transfer-Learning with Limited Data in Noisy Urban Environments".
 
+Stark, T., Wurm, M., Zhu, X. X., & Taubenböck, H. (2024). Quantifying Uncertainty in Slum Detection: Advancing Transfer-Learning with Limited Data in Noisy Urban Environments. IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, sumbitted
+
 ## Abstract Summary:
 
 In urban slum mapping, the importance of efficient techniques is often underestimated, limiting comprehensive research and solutions for the complex challenges faced by these settlements. We prioritize efficient methods to detect urban slum morphologies, utilizing transfer-learning with minimal samples. By estimating prediction probabilities, employing Monte Carlo Dropout, and addressing uncertainties using our custom CNN STnet. This approach enhances AI model training in noisy datasets, providing insights into slum dynamics and intra-urban variabilities.
 
 
-
 ## Project Guide:
 
-* Install Repository Dependencies
+* **Install Repository Dependencies**
 
-    * requirements
-    * change config.py
+    * install requirements.txt
+    * change config_example.py to config.py and adjust paths accordingly
 
 * Get Data
+
 This is only example data and is very different to the original paper. In the paper we use resampled 3 meter planetscope data, due to copyright reasons and for an example purpose we use 3m resampled RGB snetinel 2 imagery from the city of Caracas and Mumbai. IN the original paper we used >XXXXX for pre trainined and 1 to 100
 
     * download data from figshare
