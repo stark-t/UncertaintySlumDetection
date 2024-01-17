@@ -3,3 +3,6 @@
 /data/datasets
 *.tif
 *.zip
+*.csv
+*.pyc
+*.pth
