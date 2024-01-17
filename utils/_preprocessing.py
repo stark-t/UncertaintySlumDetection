@@ -4,7 +4,7 @@ import numpy as np
 
 
 def preprocess_input(x, **kwargs):
-    image_stats = pd.read_csv(config.image_stats_path)
+    image_stats = pd.read_csv(config.IMAGE_STATS_PATH)
 
     mean = image_stats.groupby(["channel"])["mean"].mean().tolist()
     std = image_stats.groupby(["channel"])["std"].mean().tolist()

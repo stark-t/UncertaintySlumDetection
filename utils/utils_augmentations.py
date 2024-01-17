@@ -4,7 +4,7 @@ import albumentations as albu
 
 def get_validation_augmentation():
     """Add paddings to make image shape divisible by 32"""
-    test_transform = [albu.PadIfNeeded(config.imagesize, config.imagesize)]
+    test_transform = [albu.PadIfNeeded(config.IMAGESIZE, config.IMAGESIZE)]
     return albu.Compose(test_transform)
 
 

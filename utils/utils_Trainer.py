@@ -8,20 +8,22 @@ from torch.nn import CrossEntropyLoss
 from torchsummary import summary
 import numpy as np
 import time
-
+import sys
 
 # import code
-import config as config
-from utils_run_data_sampling import data_sampling_function
-from _preprocessing import preprocess_input
-from utils_dataset import Dataset
-import utils_metrics
-from utils_augmentations import get_training_augmentation
-from utils_plotter import visualize
-import utils_train_epoch as train
+sys.path.append("..")  # Add parent directory to Python path
+import config  # noqa: E402
+from utils.utils_run_data_sampling import data_sampling_function
+from utils._preprocessing import preprocess_input
+from utils.utils_dataset import Dataset
+import utils.utils_metrics as utils_metrics
+from utils.utils_augmentations import get_training_augmentation
+from utils.utils_plotter import visualize
+import utils.utils_train_epoch as train
 
 # import models
 from models import STnet
+from sklearn.model_selection import train_test_split
 
 
 def set_seed(seed):
@@ -97,13 +99,11 @@ def Trainer(
         set_seed(seed)
 
     # select method to split dataset into train, test and validation
-    if traintestval_split != "4fold":
-        # get sampled dataset
-        df = data_sampling_function(LSP=LSP, mode="unbalanced")
+    df = data_sampling_function(LSP=LSP, mode="unbalanced")
 
-    elif traintestval_split == "LOOCV_pretrain":
+    if traintestval_split == "LOOCV_pretrain":
         # check if LOOCV is selected
-        if len(config.LOOCV) == 0:
+        if len(config.LOOCV_CITY) == 0:
             print("select LOOCV city")
             print(1 / 0)
 
@@ -113,7 +113,7 @@ def Trainer(
 
         if mode == "balanced_city":
             df_train = loocv_sampler(df_LOOCV)
-        elif mode == "cbalanced_class":
+        elif mode == "balanced_class":
             df_train = loocv_sampler(df_LOOCV, city_balanced=True)
         else:
             df_train = df_LOOCV
@@ -125,7 +125,19 @@ def Trainer(
 
         val_images_dir_list = df_val["path"].tolist()
         val_class_values_list = df_val["class"].tolist()
+    elif traintestval_split == "2fold":
+        # Split the DataFrame into train and test sets
+        df_city = df.loc[(df["city"] == LOOCV_city)]
+        print(df_city.head())
+        df_train, df_val = train_test_split(
+            df_city, test_size=0.5, stratify=df_city["class"], random_state=42
+        )
 
+        train_images_dir_list = df_train["path"].tolist()
+        train_class_values_list = df_train["class"].tolist()
+
+        val_images_dir_list = df_val["path"].tolist()
+        val_class_values_list = df_val["class"].tolist()
     else:
         train_images_dir_list = []
         train_class_values_list = []

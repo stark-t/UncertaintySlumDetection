@@ -39,6 +39,7 @@ def create_distribution_dataframe(image_tile_list):
     if __name__ == "main" or config.VERBOSE >= 2:
         print("original dataset")
         print(distribution_df.describe())
+        print(distribution_df.head())
 
     return distribution_df
 
