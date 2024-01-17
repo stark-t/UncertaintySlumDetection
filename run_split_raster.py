@@ -17,5 +17,5 @@ def split_raster_function(data_path="PATH"):
 
 if __name__ == "__main__":
     split_raster_function(
-        data_path="/mnt/ushelf_star_th/projects/2023_TDGUP_Dissertation/2022_P2/UncertaintySlumDetection/data"
+        data_path=os.path.join(config.BASE_DIR, "data")
     )
