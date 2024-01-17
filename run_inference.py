@@ -15,13 +15,9 @@ from sklearn.metrics import precision_score
 from math import e
 import utils.utils_functional as F
 import time
-
 import warnings
-
 warnings.filterwarnings("ignore")
-
 import sys
-
 sys.path.append("..")  # Add parent directory to Python path
 import config  # noqa: E402
 from utils._preprocessing import preprocess_input  # noqa: E402
@@ -67,7 +63,7 @@ def entropy(labels, base=None):
     return -(norm_counts * np.log(norm_counts) / np.log(base)).sum()
 
 
-def run_inference(city="1", overlap=1, shots=1, multistage=False, modelpath="None"):
+def run_inference(city="1", overlap=1, modelpath="None", image_path="None"):
     image = tif.imread("data/mumbai_3m.tif")
     image = image[:, :, 0:3]
 
@@ -169,7 +165,6 @@ def run_inference(city="1", overlap=1, shots=1, multistage=False, modelpath="Non
             x1 = int(x1)
 
             # write predictions to image array
-            # TODO! add overlap
             prediction_image[
                 x0 : x0 + config.IMAGESIZE, x1 : x1 + config.IMAGESIZE, :
             ] = norm_arr_max_prob  # norm_arr#[2]
@@ -227,12 +222,6 @@ def run_inference(city="1", overlap=1, shots=1, multistage=False, modelpath="Non
             ),
             prediction_image_majority,
         )
-        tfw_source_file = image_path[0].replace(".tif", ".tfw")
-        tfw_destination_file = os.path.join(
-            save_dir_base,
-            (model_name + str(int(metrics_fscore * 100)) + "_probability.tfw"),
-        )
-        copyfile(tfw_source_file, tfw_destination_file)
 
         cv2.imwrite(
             os.path.join(
@@ -241,12 +230,6 @@ def run_inference(city="1", overlap=1, shots=1, multistage=False, modelpath="Non
             ),
             entropy_image_majority,
         )
-        tfw_source_file = image_path[0].replace(".tif", ".tfw")
-        tfw_destination_file = os.path.join(
-            save_dir_base,
-            (model_name + str(int(metrics_fscore * 100)) + "_entropy.tfw"),
-        )
-        copyfile(tfw_source_file, tfw_destination_file)
 
 
 if __name__ == "__main__":
@@ -256,7 +239,6 @@ if __name__ == "__main__":
             run_inference(
                 city=city,
                 overlap=1,
-                shots=shots,
-                multistage=False,
-                modelpath="models/finetune_models/STnet/SS/STnet_mumbai_88px_100shots_42_SS_adam_WCEL_.pth",
+                modelpath="models\\finetune_models\\STnet\\SS\\STnet_mumbai_88px_100shots_42_SS_adam_WCEL_.pth",
+                image_path="data\\caracas_3m.tif"
             )
