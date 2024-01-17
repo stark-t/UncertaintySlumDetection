@@ -9,3 +9,4 @@
 utils/__pycache__
 utils/__pycache__/utils_split_raster.cpython-311.pyc
 config.py
+*.xml
