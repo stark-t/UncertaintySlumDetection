@@ -9,6 +9,7 @@ from torchsummary import summary
 import numpy as np
 import time
 import sys
+from sklearn.model_selection import train_test_split
 
 # import code
 sys.path.append("..")  # Add parent directory to Python path
@@ -23,7 +24,6 @@ import utils.utils_train_epoch as train
 
 # import models
 from models import STnet
-from sklearn.model_selection import train_test_split
 
 
 def set_seed(seed):

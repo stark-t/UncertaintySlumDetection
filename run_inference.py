@@ -13,7 +13,6 @@ from sklearn.metrics import accuracy_score
 from sklearn.metrics import recall_score
 from sklearn.metrics import precision_score
 from math import e
-import glob
 import utils.utils_functional as F
 import time
 
