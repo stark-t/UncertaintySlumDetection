@@ -22,7 +22,7 @@ In urban slum mapping, the importance of efficient techniques is often underesti
 
 To use the example data, follow these steps:
 
-1. Download the data from Figshare.
+1. Download the data from Figshare https://figshare.com/articles/dataset/Dataset/24988959.
 2. Extract the data into the `/data/` directory.
 
 
