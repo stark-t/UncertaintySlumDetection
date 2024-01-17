@@ -4,6 +4,9 @@ Welcome to the official repository for the paper "Quantifying Uncertainty in Slu
 
 <small><i>Stark, T., Wurm, M., Zhu, X. X., & Taubenböck, H. (2024). Quantifying Uncertainty in Slum Detection: Advancing Transfer-Learning with Limited Data in Noisy Urban Environments. IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, submitted</i></small>
 
+![UncertaintySlumDetection](https://github.com/stark-t/UncertaintySlumDetection/blob/master/images_repo/results.png)
+
+
 ## Abstract Summary:
 
 In urban slum mapping, the importance of efficient techniques is often underestimated, limiting comprehensive research and solutions for the complex challenges faced by these settlements. We prioritize efficient methods to detect urban slum morphologies, utilizing transfer-learning with minimal samples. By estimating prediction probabilities, employing Monte Carlo Dropout, and addressing uncertainties using our custom CNN STnet. This approach enhances AI model training in noisy datasets, providing insights into slum dynamics and intra-urban variabilities.
