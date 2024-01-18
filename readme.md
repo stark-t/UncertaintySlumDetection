@@ -71,3 +71,15 @@ Ensuring uniform resolution and extent across all three files is imperative for 
 | Sentinel2 RGB | Slum Propbability |
 |---------|---------|
 | ![alt text](https://github.com/stark-t/UncertaintySlumDetection/blob/master/images_repo/mumbai.png) | ![alt text](https://github.com/stark-t/UncertaintySlumDetection/blob/master/images_repo/mumbai_results.png) |
+
+
+## Further Reading
+
+This study is rooted in our preceding research focused on the identification of slum settlements. For a more comprehensive understanding of our work, we invite you to consult the following publications, which offer additional insights into our research efforts.
+
+<small><i>
+Wurm, M., Stark, T., Zhu, X. X., Weigand, M., & Taubenböck, H. (2019). Semantic segmentation of slums in satellite images using transfer learning on fully convolutional neural networks. ISPRS journal of photogrammetry and remote sensing, 150, 59-69.
+
+Stark, T., Wurm, M., Zhu, X. X., & Taubenböck, H. (2020). Satellite-based mapping of urban poverty with transfer-learned slum morphologies. IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 13, 5251-5263.
+
+Stark, T., Wurm, M., Taubenböck, H., & Zhu, X. X. (2019, May). Slum mapping in imbalanced remote sensing datasets using transfer learned deep features. In 2019 Joint Urban Remote Sensing Event (JURSE) (pp. 1-4). IEEE.</i></small>
