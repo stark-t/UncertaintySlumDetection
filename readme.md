@@ -28,6 +28,18 @@ To use the example data, follow these steps:
 1. Download the data from Figshare https://figshare.com/articles/dataset/Dataset/24988959.
 2. Extract the data into the `/data/` directory.
 
+To employ your custom dataset, it is crucial to adhere to a specific data structure. For each area of interest (AOI) within the data directory, three requisite files are essential, each sharing identical resolution and extent:
+
+1. **Remote Sensing Imagery:** This should be in RGB format and resampled to a 3-meter resolution. It must be named AOI_3m.tif (e.g., Mumbai_3m.tif).
+
+2. **Urban-Background Mask:** Utilize values of 0 for background and 1 for urban areas. In our case, we employed Local Climate Zones as delineated by Zhu et al., 2019. The data must be named AOI_urban.tif (e.g. Mumbai_urban.tif).
+
+3. **Slum Reference Mask:** Employ values of 1 to represent slum areas. The data must be named AOI_slum_reference.tif (e.g. Mumbai_slum_reference.tif).
+
+Ensuring uniform resolution and extent across all three files is imperative for seamless integration into our processing pipeline.
+
+<small><i>Zhu, X. X., Hu, J., Qiu, C., Shi, Y., Kang, J., Mou, L., ... & Wang, Y. (2019). So2Sat LCZ42: A benchmark dataset for global local climate zones classification. arXiv preprint arXiv:1912.12171.</i></small>
+
 
 ### **Run Code**
 

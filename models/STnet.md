@@ -1,0 +1,1 @@
+![STnet](https://github.com/stark-t/UncertaintySlumDetection/blob/master/models/STnet_simplified_shematic.png)
