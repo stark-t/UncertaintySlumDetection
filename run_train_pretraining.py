@@ -23,10 +23,13 @@ def run_train_pretraining():
 
     for LOOCV_city in LOOCV:
         print("Start training")
+        # Set state to Single Stage training
         stage = "SS"
 
+        # Set modelpath base directory
         modelpath_save = os.path.join(config.BASE_MODELPATH, config.MODEL, stage)
 
+        # Create modelpath if it does not exist
         if not os.path.exists(modelpath_save):
             os.makedirs(modelpath_save)
 
@@ -35,6 +38,7 @@ def run_train_pretraining():
         else:
             WCEL = ""
 
+        # Set modelpath
         modelpath_save = os.path.join(
             modelpath_save,
             (
@@ -51,6 +55,8 @@ def run_train_pretraining():
                 + ".pth"
             ),
         )
+        
+        # Start training
         Trainer(
             epochs=epochs_stage_1,
             lr=config.INITIAL_LEARNING_RATE,

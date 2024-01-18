@@ -1,33 +1,29 @@
 import os
 import numpy as np
 import tifffile as tif
-import tqdm
 import cv2
 import torch
 import albumentations as albu
 from tqdm import tqdm
-from shutil import copyfile
 from torch.nn import CrossEntropyLoss
 from sklearn.metrics import f1_score
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import recall_score
 from sklearn.metrics import precision_score
 from math import e
-import utils.utils_functional as F
 import time
 import warnings
 warnings.filterwarnings("ignore")
-import sys
+import sys  # noqa: E402
 sys.path.append("..")  # Add parent directory to Python path
 import config  # noqa: E402
 from utils._preprocessing import preprocess_input  # noqa: E402
-from torch.utils.data import DataLoader  # noqa: E402
 from utils.utils_dataset import Dataset  # noqa: E402
 from utils.utils_augmentations import get_validation_augmentation  # noqa: E402
 from utils.utils_run_data_sampling import data_sampling_function  # noqa: E402
 
 # import models
-from models import STnet
+from models import STnet  # noqa: E402
 
 
 # define helper functions
@@ -64,7 +60,14 @@ def entropy(labels, base=None):
 
 
 def run_inference(city="1", overlap=1, modelpath="None", image_path="None"):
-    image = tif.imread("data/mumbai_3m.tif")
+    """
+    Run inference
+
+    :return: None
+    """
+
+    # load image
+    image = tif.imread(image_path)
     image = image[:, :, 0:3]
 
     # get sampled dataset
@@ -88,6 +91,8 @@ def run_inference(city="1", overlap=1, modelpath="None", image_path="None"):
     entropy_image = np.zeros(
         [image.shape[0], image.shape[1], overlap], dtype=np.float32
     )
+
+    # create empty lists
     ytrues = []
     ypreds = []
     entropy_list = []
@@ -98,9 +103,7 @@ def run_inference(city="1", overlap=1, modelpath="None", image_path="None"):
     model_name = model_name.split(".")[0]
 
     device = torch.device("cuda")
-
     model = STnet.STnet(input_channel=3, num_classes=config.CLASSES)
-
     loss = CrossEntropyLoss(label_smoothing=0.1)
     loss.__name__ = "loss"
     optimizer = torch.optim.Adam(
@@ -108,7 +111,6 @@ def run_inference(city="1", overlap=1, modelpath="None", image_path="None"):
             dict(params=model.parameters(), lr=0.0),
         ]
     )
-
     model.to(device)
     checkpoint = torch.load(modelpath)
     print("loading model {}".format(modelpath))
@@ -184,15 +186,15 @@ def run_inference(city="1", overlap=1, modelpath="None", image_path="None"):
     ypred_binary = [1 if f == 2 else 0 for f in ypred]
 
     metrics_fscore = f1_score(ytrue_binary, ypred_binary, average="binary", pos_label=1)
-    metrics_precision = precision_score(
+    metrics_precision = precision_score(  # noqa: F841
         ytrue_binary, ypred_binary, average="binary", pos_label=1
     )
-    metrics_recall = recall_score(
+    recall_score(
         ytrue_binary, ypred_binary, average="binary", pos_label=1
     )
-    metrics_accuracy = accuracy_score(ytrue_binary, ypred_binary)
+    metrics_accuracy = accuracy_score(ytrue_binary, ypred_binary) # noqa: F841
     metrics_entropy = np.mean(entropy_list)
-    metrics_timestep = np.mean(tictoc_list)
+    metrics_timestep = np.mean(tictoc_list) # noqa: F841
     print(metrics_fscore)
     print(metrics_entropy)
 
@@ -240,5 +242,5 @@ if __name__ == "__main__":
                 city=city,
                 overlap=1,
                 modelpath="models\\finetune_models\\STnet\\SS\\STnet_mumbai_88px_100shots_42_SS_adam_WCEL_.pth",
-                image_path="data\\caracas_3m.tif"
+                image_path="data\\mumbai_3m.tif"
             )

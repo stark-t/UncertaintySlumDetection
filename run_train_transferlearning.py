@@ -13,14 +13,19 @@ def run_train_finetuning():
     :return: None
     """
 
+    # loop over all cities
     for LOOCV_city in config.LOOCV_CITY:
+        # loop over all shots
         for shots in config.SHOTS_PER_CLASS:
+            # if not inference starte transfer learning
             if not shots == 0:
+                # Set state to Single Stage training
                 stage = "SS"
+                # Set modelpath base directory
                 modelpath_base = os.path.join(
                     config.BASE_MODELPATH, config.MODEL, stage
                 )
-
+                # Create modelpath if it does not exist
                 if not os.path.exists(modelpath_base):
                     os.makedirs(modelpath_base)
 
@@ -28,7 +33,7 @@ def run_train_finetuning():
                     WCEL = "_WCEL_"
                 else:
                     WCEL = "_"
-
+                # Set modelpath for pretrained model
                 modelpath_base = os.path.join(
                     modelpath_base,
                     (
@@ -43,13 +48,14 @@ def run_train_finetuning():
                         + stage
                     ),
                 )
+                # Set modelbasepath for finetuned model
                 modelpath_save = os.path.join(
                     config.FINE_MODELPATH, config.MODEL, stage
                 )
-
+                # Create modelpath if it does not exist
                 if not os.path.exists(modelpath_save):
                     os.makedirs(modelpath_save)
-
+                # Set modelpath for finetuned model
                 modelpath_save = os.path.join(
                     modelpath_save,
                     (
@@ -71,8 +77,8 @@ def run_train_finetuning():
                     ),
                 )
                 modelpath_base = modelpath_base + ".pth"
-                # for seed in range(300, 901, 300):
-                print("Start fine tuning")
+                # Start transfer learning
+                print("Start transfer-learning")
                 Trainer(
                     epochs=50,
                     lr=config.INITIAL_LEARNING_RATE,
