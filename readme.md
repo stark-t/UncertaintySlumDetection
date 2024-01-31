@@ -2,7 +2,9 @@
 
 Welcome to the official repository for the paper "Quantifying Uncertainty in Slum Detection: Advancing Transfer-Learning with Limited Data in Noisy Urban Environments".
 
-<small><i>Stark, T., Wurm, M., Zhu, X. X., & Taubenböck, H. (2024). Quantifying Uncertainty in Slum Detection: Advancing Transfer-Learning with Limited Data in Noisy Urban Environments. IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, submitted</i></small>
+<small><i>T. Stark, M. Wurm, X. X. Zhu and H. Taubenbock, "Quantifying Uncertainty in Slum Detection: Advancing Transfer-Learning with Limited Data in Noisy Urban Environments," in IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, doi: 10.1109/JSTARS.2024.3359636</i></small>
+
+https://ieeexplore.ieee.org/document/10416343
 
 ![UncertaintySlumDetection](https://github.com/stark-t/UncertaintySlumDetection/blob/master/images_repo/Results.png)
 
@@ -72,6 +74,19 @@ Ensuring uniform resolution and extent across all three files is imperative for 
 |---------|---------|
 | ![alt text](https://github.com/stark-t/UncertaintySlumDetection/blob/master/images_repo/mumbai.png) | ![alt text](https://github.com/stark-t/UncertaintySlumDetection/blob/master/images_repo/mumbai_results.png) |
 
+
+## Citation
+
+@ARTICLE{10416343,
+  author={Stark, Thomas and Wurm, Michael and Zhu, Xiao Xiang and Taubenbock, Hannes},
+  journal={IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing}, 
+  title={Quantifying Uncertainty in Slum Detection: Advancing Transfer-Learning with Limited Data in Noisy Urban Environments}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={1-15},
+  keywords={Artificial intelligence;Remote sensing;Urban areas;Training;Noise measurement;Uncertainty;Task analysis;Transfer learning;learning from few samples;uncertainty estimation;noisy dataset;imbalanced dataset;slum mapping},
+  doi={10.1109/JSTARS.2024.3359636}}
 
 ## Further Reading
 
